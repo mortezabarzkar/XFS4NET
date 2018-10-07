@@ -1,0 +1,131 @@
+﻿<Window x:Class="XFS4NET.Sample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XFS4NET.Sample"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        Title="MainWindow" Height="600" Width="600">
+    <Grid>
+        <TabControl Margin="10" BorderBrush="Gainsboro" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <TabItem Header="IDC">
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
+                        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="ServiceName" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ComboBox x:Name="IdcServices" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150"/>
+                            <Button x:Name="idcOpenAndRegister" Click="idcOpenAndRegister_Click" Content="Start And Register" Height="35" FontSize="16" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0">
+                                <StackPanel  >
+                                    <StackPanel.Resources>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Setter Property="Margin" Value="5,5,5,0"/>
+                                            <Setter Property="Height" Value="35"/>
+                                            <Setter Property="FontSize" Value="16"/>
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <Button  x:Name="idcGetstatus" Click="idcGetstatus_Click" Content="Get Status" VerticalAlignment="Center"/>
+                                    <Button  x:Name="idcReadCard"  Click="idcReadCard_Click" Content="Read Card" VerticalAlignment="Center"/>
+                                    <Button  x:Name="idcEjectCard" Click="idcEjectCard_Click" Content="Eject Card"  VerticalAlignment="Center"/>
+                                    <Button  x:Name="idcCaptureCard" Content="Capture Card"  VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                            <TextBox  x:Name="idcResponse" TextWrapping="Wrap" Grid.Column="1" Margin="5" 
+                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                       TextChanged="Response_TextChanged" 
+                                     ScrollViewer.CanContentScroll="True"  AcceptsReturn="True">
+
+
+                            </TextBox>
+                        </Grid>
+                    </Border>
+                    <Grid Grid.Row="2">
+                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                            <StackPanel.Resources>
+                                <Style TargetType="{x:Type Button}">
+                                    <Setter Property="Margin" Value="5,5,5,0"/>
+                                    <Setter Property="Height" Value="35"/>
+                                    <Setter Property="FontSize" Value="16"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button  x:Name="btnSaveIdcConfig" Content="Save IDC Config" Click="btnSaveIdcConfig_Click"  VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="PIN">
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="60"/>
+                    </Grid.RowDefinitions>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="0">
+                        <Grid  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="150"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Content="ServiceName" Grid.Column="0"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ComboBox x:Name="PinServices" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="150"/>
+                            <Button x:Name="PinOpenAndRegister" Click="PinOpenAndRegister_Click" Content="Start And Register" Height="35" FontSize="16" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="Black" BorderThickness="1" Grid.Row="1">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border BorderBrush="Black" BorderThickness="1" Grid.Column="0">
+                                <StackPanel  >
+                                    <StackPanel.Resources>
+                                        <Style TargetType="{x:Type Button}">
+                                            <Setter Property="Margin" Value="5,5,5,0"/>
+                                            <Setter Property="Height" Value="35"/>
+                                            <Setter Property="FontSize" Value="16"/>
+                                        </Style>
+                                    </StackPanel.Resources>
+                                    <Button  x:Name="PinGetstatus" Click="PinGetstatus_Click" Content="Get Status" VerticalAlignment="Center"/>
+                                    <Button  x:Name="PinGetEntery"  Click="PinGetEntery_Click" Content="Get Entery" VerticalAlignment="Center"/>
+                                    <Button  x:Name="PinGetPin"  Click="PinGetPin_Click" Content="Get Pin" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </Border>
+                            <TextBox  x:Name="PinResponse" TextWrapping="Wrap" Grid.Column="1" Margin="5" 
+                                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                      TextChanged="Response_TextChanged" 
+                                     ScrollViewer.CanContentScroll="True"  AcceptsReturn="True">
+
+                            </TextBox>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
